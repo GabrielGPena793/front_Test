@@ -1,0 +1,126 @@
+.cardRecommend-container {
+  background-color: var(--charcoal);
+}
+
+.cardRecommend {
+  overflow: hidden;
+  border: none;
+}
+
+.cardRecommend-h2 {
+  padding: 40px 0 20px;
+  text-align: left;
+  color: var(--light);
+  position: relative;
+  z-index: 100;
+}
+
+.cardRecommend-h2:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--red);
+  position: absolute;
+  right: 0;
+  top: 65%;
+  z-index: -1;
+}
+
+.cardRecommend-h2 span {
+  background-color: var(--charcoal);
+}
+
+.cardRecommend-body {
+  margin: 2px;
+}
+
+.cardRecommend-top {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evaluation-number {
+  margin: 0;
+  padding: 0 4px;
+  background-color: #383B58;
+  border-radius: 5px;
+  color: var(--light);
+}
+
+.cardRecommend-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cardRecommend-title {
+  align-items: center;
+  margin: 6px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.evaluation-text {
+  font-size: 12px;
+  color: var(--charcoal);
+}
+
+
+.cardRecommend-evaluation-sub {
+  font-size: 12px;
+}
+
+.cardRecommend-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 0;
+  margin: 6px 0;
+}
+
+.cardRecommend-icon {
+  width: 19px;
+  margin-right: 10px;
+}
+
+.cardRecommend-icon-Text {
+  font-size: 14px;
+  align-self: center;
+}
+
+.cardRecommend-img {
+  width: 100%;
+  height: 283px;
+  padding: 0;
+  object-fit: cover;
+}
+
+.cardRecommend-description {
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardRecommend-btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.cardRecommend-btn:hover {
+  border: 2px solid var(--red);
+  color: var(--red);
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .cardRecommend-body {
+    margin-right: 10px;
+    padding: 10px;
+  }
+}

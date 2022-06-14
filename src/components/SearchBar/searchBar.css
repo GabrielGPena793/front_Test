@@ -1,0 +1,56 @@
+.search-bar-title {
+    text-align: center;
+    color: var(--light);
+    font-size: 36px;
+}
+
+#search-bar {
+    background-color: var(--charcoal);
+}
+
+.btn-search {
+    background-color: var(--red) !important;
+    border: none;
+    font-weight: bold; 
+    height: 38px;
+}
+
+.btn-search:hover {
+    background-color: var(--red-hover)!important;
+}
+
+.rmdp-input:focus {
+    border: none; 
+    box-shadow: none;
+}
+
+
+/*calendario*/
+
+.rmdp-input {
+    width: 100%;
+    border: none;
+}
+
+.red .rmdp-week-day {
+    color: var(--red) !important;
+}
+
+.red .rmdp-range {
+    background-color: var(--red) !important;
+}
+
+.red .rmdp-day:not(.rmdp-day-hidden) span.sd:hover {
+    background-color: var(--red-hover) !important;
+}
+
+
+
+
+
+
+
+
+
+
+

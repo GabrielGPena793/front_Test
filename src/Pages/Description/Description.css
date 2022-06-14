@@ -1,0 +1,34 @@
+.Header_desc{
+    position: relative;
+}
+
+.img_galeria{
+    position: relative;
+}
+
+.description_header_all {
+    padding: 0rem 6rem 0rem 6rem;
+    background-color: var(--charcoal);
+}
+
+.Header_description_All {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon_back_header_description {
+    width: 2.6rem;
+    height: 100%;
+}
+
+.description_localidade_avaliacao {
+    padding: 0rem 6rem 0rem 6rem;
+    background-color: var(--grey);
+}
+
+.description_localidade_avaliacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
