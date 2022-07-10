@@ -4,9 +4,9 @@ import { useFormik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import Textfield from '@material-ui/core/TextField';
 import './register.css'
-import Button from '@mui/material/Button';
 import axios from '../Login/servicesLogin/api'
 import Spinner from 'react-bootstrap/Spinner'
+import { ButtonPadrao } from '../../components/ButtonPadrao';
 
 
 const validationSchema = yup.object().shape({
@@ -149,8 +149,7 @@ export default function Register() {
                         onBlur={formik.handleBlur}
                         helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
                     />
-
-                    <Button type="submit" className="button-register" variant="contained">Criar conta</Button>
+                    <ButtonPadrao text="Criar conta" type="submit" className="button-login " /> 
                     <p className="link-login">Já tem uma conta? <Link to="/Login">Iniciar sessão</Link></p>
                 </form>
                 </div>

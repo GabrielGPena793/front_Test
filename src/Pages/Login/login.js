@@ -3,11 +3,12 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import Textfield from '@material-ui/core/TextField';
-import Button from '@mui/material/Button';
 import './login.css';
 import axios from './servicesLogin/api';
 import useAuth from "../Login/hooks/useAuth";
 import Spinner from 'react-bootstrap/Spinner'
+import { ButtonPadrao } from '../../components/ButtonPadrao';
+
 
 const validationSchema = yup.object().shape({
   email: yup.string().email('Digite um email válido').required('*Campo obrigatório'),
@@ -94,7 +95,7 @@ export default function Login() {
           onBlur={formik.handleBlur}
           helperText={formik.touched.password && formik.errors.password}
         />
-        <Button onClick={() => setLogginRedirect(false)} type="submit" className="btn-login" variant="contained">Enviar</Button>
+         <ButtonPadrao text="Enviar" handleClick={() => setLogginRedirect(false)} className="button-login " /> 
         <p className="link-register">Ainda não tem conta? <Link to="/Register">Registre-se</Link></p>
       </form>        
       <div className="car-image">
