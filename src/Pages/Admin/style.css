@@ -42,7 +42,7 @@
 }
 
 .accordion_btn {
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
 @media (min-width: 768px) {
