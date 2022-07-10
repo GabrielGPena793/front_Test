@@ -34,13 +34,11 @@
 }
 
 .form-control:focus {
-  border: none !important;
   box-shadow: none !important;
 }
 
 
 .rmdp-input:focus {
-  border: none !important;
   box-shadow: none !important;
 }
 
