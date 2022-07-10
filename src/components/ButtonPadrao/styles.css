@@ -10,7 +10,7 @@
 
 .button_padrao:focus {
   color: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
+  border: 2px solid var(--secondary-color) !important;
   background: transparent;
 
 }
