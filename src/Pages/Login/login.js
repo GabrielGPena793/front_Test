@@ -17,7 +17,7 @@ const validationSchema = yup.object().shape({
 
 export default function Login() {
 
-  const { setIsLogin, setUser } = useAuth();
+  const { setIsLogin, setUser, logginRedirect, setLogginRedirect } = useAuth();
   let navigate = useNavigate();
 
   const [alertError, setAlertError] = useState([]);
@@ -34,8 +34,9 @@ export default function Login() {
         password: values.password
       }, { timeout: 5000 })
         .then(function (response) {
-          console.log(response);
           localStorage.setItem("@token_user", response.data.token);
+          localStorage.setItem("@user_id", response.data.id);
+          localStorage.setItem("@email", values.email)
           setUser(response.data);
         }).then(() => {
           if (localStorage.getItem("@token_user")) {
@@ -57,15 +58,17 @@ export default function Login() {
   });
 
   return (
-    <div className="container-login">
-      <div className="loading hide">
+    <div className="container container-login">
+      <div className="loading hide text-light">
         <p>Aguarde</p>
-        <Spinner animation="border" role="status" variant="danger">
+        <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       </div>
+      <div className="card-login">
       <form className="login-form" onSubmit={formik.handleSubmit}>
-        <h1 className="login-title">Iniciar Sessão</h1>
+        <div className=""><h1 className="login-title">Iniciar Sessão</h1></div>
+        {logginRedirect ? <p className="text-login">Você precisa estar logado para fazer uma reserva</p> : ""}
         {alertError.length > 0 && <div className="alert-error">{alertError}</div>}
         <Textfield
           id="email"
@@ -91,14 +94,13 @@ export default function Login() {
           onBlur={formik.handleBlur}
           helperText={formik.touched.password && formik.errors.password}
         />
-
-        <Button type="submit" className="btn-login" variant="contained">Enviar</Button>
-
+        <Button onClick={() => setLogginRedirect(false)} type="submit" className="btn-login" variant="contained">Enviar</Button>
         <p className="link-register">Ainda não tem conta? <Link to="/Register">Registre-se</Link></p>
-      </form>
+      </form>        
+      <div className="car-image">
+        <img src="https://i.postimg.cc/4xTbr3L3/jan-vlacuha-U4-Iao-KF5aj4-unsplash.jpg" alt="car" />
+      </div>       
+      </div>   
     </div>
-
-
-
   );
 }

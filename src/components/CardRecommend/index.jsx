@@ -1,86 +1,127 @@
 import React, { useEffect, useState } from "react";
-import { Card, Container, Row } from "react-bootstrap";
 import { api } from "../../Service/axios.js";
-import { Link } from "react-router-dom";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import stars from "../../img/stars.svg";
+import Loading from "../../components/Loading";
 
 function CardRecommend() {
-
   const [productRecommend, setProductRecommend] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get('/v1/products?').then((renponse) => {
+    api.get("/v1/products").then((renponse) => {
       setProductRecommend(renponse.data.content);
-    })
+      setLoading(false);
+    });
   }, []);
 
+  if (loading === true) {
+    return <Loading />;
+  }
+
+
   return (
-    <div className="cardRecommend-container">
-      <Container >
-        <h2 className="cardRecommend-h2"><span>Recomendações</span></h2>
-        <div className="d-flex sm-flex-col md-flex-col lg-flex-row">
-          <Row>
-            {productRecommend.slice(0, 4).map(productRecommend => (
-              <div key={productRecommend.id} className="col-sm-12 col-md-12 col-lg-12 col-xl-6 mb-4">
-                <Card className="cardRecommend m-0 p-0">
-                  <Row>
-                    <div className="col-md-6 m-0 p-0">
-                      <Card.Img
-                        className="cardRecommend-img img-fluid p-0 m-0"
-                        src={productRecommend.images[0].url}
-                        alt={productRecommend.description}
-                      />
-                    </div>
-                    <div className="col-md-6 m-0 p-0">
-                      <Card.Body className="cardRecommend-body">
-
-                        <div className="cardRecommend-top">
-                          <Card.Subtitle className="cardRecommend-subtitle">{productRecommend.category.qualification}
-                            <img src="#" alt="Ilustração de cinco estrelas na cor amarela" />
-                          </Card.Subtitle>
-                          <p className="evaluation-number">{productRecommend.evaluation}</p>
-                        </div>
-                        <div className="cardRecommend-top">
-                          <Card.Title><h3 className="cardRecommend-title">{productRecommend.name}</h3>
-                          </Card.Title>
-                          <p className="evaluation-text">{productRecommend.evaluationText}</p>
-                        </div>
-
-
-                        <div className="cardRecommend-icons" >
-                          <i className={productRecommend.characteristics[0].icon} aria-hidden="true"></i>
-                          <Card.Subtitle className="cardRecommend-icon-Text">{productRecommend.characteristics[0].name}: {productRecommend.characteristics[0].description}</Card.Subtitle>
-                        </div>
-                        <div className="cardRecommend-icons" >
-                          <i className={productRecommend.characteristics[1].icon} aria-hidden="true"></i>
-                          <Card.Subtitle className="cardRecommend-icon-Text">{productRecommend.characteristics[1].name}: {productRecommend.characteristics[1].description}</Card.Subtitle>
-                        </div>
-                        <div className="cardRecommend-icons" >
-                          <i className={productRecommend.characteristics[2].icon} aria-hidden="true"></i>
-                          <Card.Subtitle className="cardRecommend-icon-Text">{productRecommend.characteristics[2].name}: {productRecommend.characteristics[2].description}</Card.Subtitle>
-                        </div>
-                        <div className="cardRecommend-icons" >
-                          <i className={productRecommend.characteristics[3].icon} aria-hidden="true"></i>
-                          <Card.Subtitle className="cardRecommend-icon-Text">{productRecommend.characteristics[3].name}: {productRecommend.characteristics[3].description} </Card.Subtitle>
-                        </div>
-
-                        <Card.Text><p className="cardRecommend-description">{productRecommend.description}</p></Card.Text>
-                        <Link to={`/description/${productRecommend.id}`}>
-                          <button className="cardRecommend-btn">Mais detalhes</button>
-                        </Link>
-                      </Card.Body>
-                    </div>
-                  </Row>
-                </Card>
+    <section className="cardRecommend-container" id="recommended">
+      <div className="box_recommend_shadow">
+        <h2 className="card_recommend_title">
+          <span>Recomendações</span>
+        </h2>
+        <h2 className="card_recommend_title_shadow">
+          <span>Recomendações</span>
+        </h2>
+      </div>
+      <div className="card_recommend_content">
+        <img
+          className="card_recommend_img1 card_recommend_img"
+          src={productRecommend[8].images[0].url}
+          alt={productRecommend[8].description}
+        />
+        <div className="card_recommend_about_logo">
+          <div className="card_recommend_about_logo_all">
+            <div className="card_recommend_about_title">
+              {productRecommend[8]?.name}
+            </div>
+            <div className="card_recommend_about">
+              {productRecommend[8]?.description}
+            </div>
+            <div className="card_recommend_icon">
+              <div className="card_recommend_icon0">
+                <div>{productRecommend[8]?.characteristics[0].description}</div>
+                <div>{productRecommend[8].characteristics[0].name}</div>
               </div>
-            ))}
-          </Row>
+              <div className="card_recommend_icon0 card_recommend_icon1">
+                <div>{productRecommend[8]?.characteristics[1].description}</div>
+                <div>{productRecommend[8]?.characteristics[1].name}</div>
+              </div>
+              <div className="card_recommend_icon0 card_recommend_icon2">
+                <div>{productRecommend[8]?.characteristics[2].description}</div>
+                <div>{productRecommend[8]?.characteristics[2].name}</div>
+              </div>
+              <div className="card_recommend_icon0 card_recommend_icon3">
+                <div>{productRecommend[8]?.characteristics[3].description}</div>
+                <div>{productRecommend[8]?.characteristics[3].name}</div>
+              </div>
+              <div className="card_recommend_icon4">
+                <div> {productRecommend[8]?.characteristics[4].description}</div>
+                <div>{productRecommend[8]?.characteristics[4].name}</div>
+              </div>
+            </div>
+          </div>
+          <div className="card_recommend_logo_button">
+            <div className="card_recommend_logo">
+              <img className="card_recommend_logo_img" src="https://i.postimg.cc/sXyz8b4y/Group-134.png" alt="logo do site" />
+            </div>
+            <button className="button_card_recommend">Ver mais</button>
+          </div>
         </div>
-      </Container>
-    </div>
-  )
+      </div>
+      <div className="card_recommend_content card_recommend_box2">
+        <img
+          className="card_recommend_img2 card_recommend_img"
+          src={productRecommend[4]?.images[0].url}
+          alt={productRecommend[4]?.description}
+        />
+        <div className="card_recommend_about_logo">
+          <div className="card_recommend_about_logo_all">
+            <div className="card_recommend_about_title">
+              {productRecommend[4]?.name}
+            </div>
+            <div className="card_recommend_about">
+              {productRecommend[4]?.description}
+            </div>
+            <div className="card_recommend_icon">
+              <div className="card_recommend_icon0">
+                <div>{productRecommend[4]?.characteristics[0].description}</div>
+                <div>{productRecommend[4]?.characteristics[0].name}</div>
+              </div>
+              <div className="card_recommend_icon0 card_recommend_icon1">
+                <div>{productRecommend[4]?.characteristics[1].description}</div>
+                <div>{productRecommend[4]?.characteristics[1].name}</div>
+              </div>
+              <div className="card_recommend_icon0 card_recommend_icon2">
+                <div>{productRecommend[4]?.characteristics[2].description}</div>
+                <div>{productRecommend[4]?.characteristics[2].name}</div>
+              </div>
+              <div className="card_recommend_icon0 card_recommend_icon3">
+                <div>{productRecommend[4]?.characteristics[3].description}</div>
+                <div>{productRecommend[4]?.characteristics[3].name}</div>
+              </div>
+              <div className="card_recommend_icon4">
+                <div>{productRecommend[4]?.characteristics[4].description}</div>
+                <div>{productRecommend[4]?.characteristics[4].name}</div>
+              </div>
+            </div>
+          </div>
+          <div className="card_recommend_logo_button">
+            <div className="card_recommend_logo">
+              <img className="card_recommend_logo_img" src="https://i.postimg.cc/sXyz8b4y/Group-134.png" alt="logo do site" />
+            </div>
+            <button className="button_card_recommend">Ver mais</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default CardRecommend;

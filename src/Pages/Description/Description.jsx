@@ -1,60 +1,67 @@
+import Header_desc from "./Header_desc/Header_desc";
+import Img_galeria from "./img_galeria/img_galeria";
+import Car_location from "./Car_locat/Car_location";
+import { DateFree } from "./DateFree/DateFree";
 import { useState, useEffect } from "react";
 import { api } from "../../Service/axios";
 import { useParams } from "react-router-dom";
-import HeaderDesc from "./HeaderDesc";
-import ImgGaleria from "./ImgGaleria";
-import CarLocation from "./CarLocation";
-import DescriptionFooter from "./DescriptionFooter";
-import DateFree from "./DateFree";
+import AddRules from "../Admin/AddRules";
 
+import "./Description.css";
 
 export default function Description() {
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [numberOfMonths, setNumberOfMonths] = useState(2);
   const [products, setProducts] = useState([]);
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
-    if (windowWidth < 580) {
+    if (windowWidth < 830) {
       setNumberOfMonths(1);
-    }
-    else {
+    } else {
       setNumberOfMonths(2);
     }
   }, [windowWidth]);
 
   useEffect(() => {
-    getByIdProducts();
-  }, [])
+    getByIdproducts();
+  }, []);
 
-  async function getByIdProducts() {
-    const response = await api.get(`/v1/products/${id}`)
+  async function getByIdproducts() {
+    const response = await api.get(`/v1/products/${id}`);
     setProducts([response.data]);
   }
 
   return (
-    <div>
+    <>
       <div className="Header_desc">
-        <HeaderDesc products={products} />
+        <Header_desc products={products} />
       </div>
-      <div className="Img_galeria">
-        <ImgGaleria products={products} windowWidth={windowWidth} />
+      <div className="container__description_owner">
+        <div className="Img_galeria">
+          <Img_galeria products={products} windowWidth={windowWidth} />
+        </div>
       </div>
 
       <div className="date_free">
-        <DateFree products={products} numberOfMonths={numberOfMonths} />
+        <DateFree
+          products={products}
+          numberOfMonths={numberOfMonths}
+          productId={id}
+        />
       </div>
+      <div className="container__description_owner">
+        <div className="Car_location">
+          <Car_location products={products} />
+        </div>
 
-      <div className="Car_location">
-        <CarLocation products={products} />
+        <div className="car_categories">
+          <AddRules />
+        </div>
       </div>
-      <div className="Car_categories">
-        <DescriptionFooter />
-      </div>
-    </div>
+    </>
   );
 }

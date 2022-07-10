@@ -1,34 +1,19 @@
-.Header_desc{
-    position: relative;
+.car_categories {
+   padding: 0 6rem;
+  
 }
 
-.img_galeria{
-    position: relative;
+.car_categories .addRules > div{
+    padding: 0 !important;
+    margin: 5rem 0 !important;
+    max-width: 100% !important;
 }
 
-.description_header_all {
-    padding: 0rem 6rem 0rem 6rem;
-    background-color: var(--charcoal);
+.container__description_owner{
+    max-width: 1294px;
+    margin: auto;
 }
 
-.Header_description_All {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.icon_back_header_description {
-    width: 2.6rem;
-    height: 100%;
-}
-
-.description_localidade_avaliacao {
-    padding: 0rem 6rem 0rem 6rem;
-    background-color: var(--grey);
-}
-
-.description_localidade_avaliacao {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container__description_owner > div, .Car_location_all, .img_gal_descr_all {
+    padding: 0 1rem;
 }

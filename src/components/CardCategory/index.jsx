@@ -1,59 +1,158 @@
 import React, { useEffect, useState } from "react";
-import { Card, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { api } from "../../Service/axios.js";
 import { Link } from "react-router-dom";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Loading from "../../components/Loading"
+import Loading from "../../components/Loading";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function CardCategory() {
-
   const [productCategory, setProductCategory] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  AOS.init();
+
   useEffect(() => {
-    api.get('/v1/categories').then((response) => {
+    api.get("/v1/categories").then((response) => {
       setProductCategory(response.data);
-      setLoading(false)
+      setLoading(false);
     });
   }, []);
 
   if (loading === true) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
-    <div className="cardCategory-container">
-      <Container >
-        <h2 className="cardCategory-h2"><span>Buscar por categoria</span></h2>
-        <div className='d-flex'>
-          <Row>
-            {productCategory.map(productCategory => (
-              <div key={productCategory.id} className="col-sm-6 col-md-6 col-lg-6 col-xl-3 mb-4">
-                <Link className="cardCategory-link" to={`/category/${productCategory.qualification}`}>
-                  <Card className="cardCategory-card">
-                    <div className="cardCategory-img-content">
-                      <Card.Img
-                        className="cardCategory-img img-fluid"
-                        src={productCategory.imageUrl}
-                        alt={productCategory.description}
-                      />
-                    </div>
-                    <Card.Body>
-                      <Card.Title className="cardCategory-title">{productCategory.qualification}</Card.Title>
-                      <Card.Text className="cardCategory-text">{productCategory.description}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Link>
+    <section className="cardCategory-container" id="categories">
+      <Container>
+        <div className="box_category_shadow">
+          <h2 className="card_category_title">
+            <span>Categorias</span>
+          </h2>
+          <h2 className="card_category_title_shadow">
+            <span>Categorias</span>
+          </h2>
+        </div>
+        <div className="card_category_col">
+          <div>
+            <Link
+              className="card_category_row"
+              to={`/category/${productCategory[0].qualification}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div
+                className="cardCategory-img-content"
+                data-aos="fade-right"
+                data-aos-offset="200"
+                data-aos-duration="500"
+              >
+                <img
+                  className="card_category_img0 card_category_img"
+                  src="https://i.postimg.cc/VNWzDGfk/PHOTOS02-720009999-PH-1-OKYOJCDCZBTK-1.png"
+                  alt={productCategory[0].description}
+                />
               </div>
-            ))}
-          </Row>
+              <div className="cardCategory_content">
+                <div className="card_category_content_title">
+                  {productCategory[0].qualification}
+                </div>
+                <div className="card_category_content_text">
+                  {productCategory[0].description}
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div>
+            <Link
+              className="card_category_row_reverse"
+              to={`/category/${productCategory[1].qualification}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div
+                className="cardCategory-img-content"
+                data-aos="fade-left"
+                data-aos-offset="200"
+                data-aos-duration="500"
+              >
+                <img
+                  className="card_category_img1 card_category_img"
+                  src="https://i.postimg.cc/mg0S8jdJ/7ed7a8fa861553adc42b3f5d198fad34-1.png"
+                  alt={productCategory[1].description}
+                />
+              </div>
+              <div className="cardCategory_content">
+                <div className="card_category_content_title">
+                  {productCategory[1].qualification}
+                </div>
+                <div className="card_category_content_text">
+                  {productCategory[1].description}
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div>
+            <Link
+              className="card_category_row"
+              to={`/category/${productCategory[2].qualification}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div
+                className="cardCategory-img-content"
+                data-aos="fade-right"
+                data-aos-offset="200"
+                data-aos-duration="500"
+              >
+                <img
+                  className="card_category_img2 card_category_img"
+                  src="https://i.postimg.cc/tgWNf6wT/OIP-1.png"
+                  alt={productCategory[2].description}
+                />
+              </div>
+              <div className="cardCategory_content">
+                <div className="card_category_content_title">
+                  {productCategory[2].qualification}
+                </div>
+                <div className="card_category_content_text">
+                  {productCategory[2].description}
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div>
+            <Link
+              className="card_category_row_reverse"
+              to={`/category/${productCategory[3].qualification}`}
+              style={{ textDecoration: "none" }}
+            >
+              <div
+                className="cardCategory-img-content"
+                data-aos="fade-left"
+                data-aos-offset="200"
+                data-aos-duration="500"
+              >
+                <img
+                  className="card_category_img3 card_category_img"
+                  src="https://i.postimg.cc/qRGXBTkH/Lamborghini-Urus-Rental-Dubai-1.png"
+                  alt={productCategory[3].description}
+                />
+              </div>
+              <div className="cardCategory_content">
+                <div className="card_category_content_title">
+                  {productCategory[3].qualification}
+                </div>
+                <div className="card_category_content_text">
+                  {productCategory[3].description}
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </Container>
-
-    </div>
-  )
+    </section>
+  );
 }
 
 export default CardCategory;
-
