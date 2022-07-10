@@ -68,7 +68,7 @@
 
 /*Calendar css*/
 .rmdp-week-day {
-    color: var(--red);
+    color: var(--red) !important;
 }
 
 .container__calendar .rmdp-range {
@@ -100,7 +100,7 @@
 }
 
 .container__calendar {
-    width: 100%;
+    width: 100% !important;
 }
 
 .container__calendar .rmdp-top-class  {
@@ -138,12 +138,9 @@
 .container__calendar .rmdp-day span {
     border-radius: 0;
 }
-.container__calendar .rmdp-range.start {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-}
 
-.container__calendar .rmdp-range.end {
+.container__calendar .rmdp-range.end,
+.container__calendar .rmdp-range.start {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 }
