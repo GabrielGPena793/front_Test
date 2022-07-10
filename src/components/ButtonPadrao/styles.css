@@ -2,7 +2,7 @@
   background-color: transparent;
   transition: 0.2s;
   font-size: 0.75rem;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--secondary-color) !important;
   font-weight: bold;
   height: 40px;
   color: var(--secondary-color);
