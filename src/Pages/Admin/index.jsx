@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 
 import './style.css'
 import api from '../Login/servicesLogin/api';
+import { CaretLeft } from 'phosphor-react';
 
 
 
@@ -117,9 +118,7 @@ function Admin(props) {
             </h4>
           </Navbar.Brand>
           <Link className="link-to" to="/" alt="Voltar" title="Voltar">
-            <div className="text-white">
-              <BsChevronLeft className="icon_back_header_description" />
-            </div>
+              <CaretLeft size={50} weight="bold" color="var(--dark-blue)" />
           </Link>
         </Navbar>
       </div>

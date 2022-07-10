@@ -8,7 +8,7 @@
 }
 
 .admin_header_btn {
-  width: 70%;
+  width: 100%;
 }
 
 .admin_container {
@@ -33,11 +33,16 @@
   flex-direction: row;
   gap: 1rem;
   text-align: center;
+  justify-content: center;
   margin: 1rem;
 }
 
 .admin_btn {
-  max-width: 15rem;
+  max-width: 100%;
+}
+
+.accordion_btn {
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
