@@ -158,7 +158,9 @@
   display: block;
   width: 100%;
 }
-
+.button__card_recommend {
+  width: 100%;
+}
 .card_recommend_box2{
   margin-top: 100px;
 }

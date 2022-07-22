@@ -2,7 +2,7 @@
   background-color: transparent;
   transition: 0.2s;
   font-size: 0.75rem;
-  border: 1px solid var(--secondary-color) !important;
+  border: 1px solid var(--secondary-color);
   font-weight: bold;
   height: 40px;
   color: var(--secondary-color);
@@ -19,8 +19,4 @@
   background-color: var(--secondary-color) !important;
   color: var(--light);
   border: 1px solid var(--primary-color);
-}
-
-.form-control:focus, .rmdp-input:focus {
-  border: 2px solid var(--secondary-color) !important;
 }

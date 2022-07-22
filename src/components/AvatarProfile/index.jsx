@@ -3,13 +3,7 @@ import {  NavDropdown } from "react-bootstrap";
 import "./styles.css";
 import { Link } from "react-router-dom";
 
-export function AvatarProfile({ user, handleLogout }) {
-
-  function setIsLoginFalse() {
-    localStorage.removeItem("@token_user");
-
-    handleLogout(false);
-  }
+export function AvatarProfile({ user, onLogout }) {
 
   return (
     <NavDropdown
@@ -25,7 +19,7 @@ export function AvatarProfile({ user, handleLogout }) {
           <Link className="dropdown-item" to="/myReservation">
             Minhas Reservas
           </Link>
-          <span className="avatar_logout dropdown-item" onClick={setIsLoginFalse}>
+          <span className="avatar_logout dropdown-item" onClick={onLogout}>
             Sair
           </span>
         </>
@@ -37,7 +31,7 @@ export function AvatarProfile({ user, handleLogout }) {
           <Link className="dropdown-item" to="/admin">
             Administração de produtos
           </Link>
-          <span className="avatar_logout dropdown-item" onClick={setIsLoginFalse}>
+          <span className="avatar_logout dropdown-item" onClick={onLogout}>
             Sair
           </span>
         </>

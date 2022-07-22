@@ -9,6 +9,7 @@ import Modal from 'react-modal';
 import AddAttribute from '../Admin/AddAttribute';
 import AddProduct from '../Admin/AddProduct';
 import Swal from 'sweetalert2';
+import { CaretLeft } from "phosphor-react";
 
 import './style.css'
 
@@ -192,22 +193,22 @@ function ListProducts() {
     <div>
       <div className="description_header_all">
         <Navbar className="Header_description_All">
-          <Navbar.Brand className="text-white">
-            <h4 title="Categoria" alt="Categoria">
-              Administrativo
-            </h4>
+          <Navbar.Brand >
+            Administrativo
           </Navbar.Brand>
           <Link className="link-to" to="/admin" alt="Voltar" title="Voltar">
-            <div className="text-white">
-              <BsChevronLeft className="icon_back_header_description" />
+            <div >
+              <CaretLeft size={50} weight="bold" color="var(--dark-blue)" />
             </div>
           </Link>
         </Navbar>
       </div>
 
+
+
       <Container>
         <div className="list_container">
-          <h4>Produtos cadastrados</h4>
+          <h1 className="list_h1">Produtos cadastrados</h1>
 
           <div className="list_button">
             <button

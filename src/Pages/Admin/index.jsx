@@ -7,12 +7,10 @@ import AddProduct from './AddProduct';
 import AddRules from './AddRules';
 import { ButtonPadrao } from '../../components/ButtonPadrao';
 import Swal from 'sweetalert2';
+import api from '../Login/servicesLogin/api';
+import { CaretLeft } from "phosphor-react";
 
 import './style.css'
-import api from '../Login/servicesLogin/api';
-import { CaretLeft } from 'phosphor-react';
-
-
 
 function Admin(props) {
 
@@ -112,16 +110,17 @@ function Admin(props) {
     <>
       <div className="description_header_all">
         <Navbar className="Header_description_All">
-          <Navbar.Brand className="text-white">
-            <h4 title="Categoria" alt="Categoria">
-              Administrativo - cadastro
-            </h4>
+          <Navbar.Brand >
+            Administrativo - cadastro
           </Navbar.Brand>
           <Link className="link-to" to="/" alt="Voltar" title="Voltar">
+            <div >
               <CaretLeft size={50} weight="bold" color="var(--dark-blue)" />
+            </div>
           </Link>
         </Navbar>
       </div>
+
       <div className="admin_container">
         <Container>
           <div className="admin_header">

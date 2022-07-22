@@ -3,9 +3,10 @@ import { createContext, useEffect, useState } from "react";
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const [isLogin, setIsLogin] = useState(false)
     const [logginRedirect, setLogginRedirect] = useState(false)
+    const [productId, setProductId] = useState(null)
 
     useEffect(() => {
         const userToken = localStorage.getItem("user_token");
@@ -61,6 +62,17 @@ export const AuthProvider = ({ children }) => {
         return;
     };
 
+
+    function handleRedirect(product) {
+
+        if (logginRedirect && productId) {
+            setLogginRedirect(false)
+        } else {
+            setLogginRedirect(true)
+            setProductId(product)
+        }
+    }
+
     const signout = () => {
         setUser(null);
         localStorage.removeItem("user_token");
@@ -68,7 +80,13 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider
-            value={{ user, setUser,  signed: !!user, signin, signup, signout, isLogin, setIsLogin, logginRedirect, setLogginRedirect }}
+            value={{
+                user, setUser, signed: !!user,
+                signin, signup, signout, isLogin,
+                setIsLogin, setLogginRedirect,
+                logginRedirect, handleRedirect,
+                productId, setProductId
+            }}
         >
             {children}
         </AuthContext.Provider>

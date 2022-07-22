@@ -3,12 +3,11 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import Textfield from '@material-ui/core/TextField';
+import Button from '@mui/material/Button';
 import './login.css';
 import axios from './servicesLogin/api';
 import useAuth from "../Login/hooks/useAuth";
 import Spinner from 'react-bootstrap/Spinner'
-import { ButtonPadrao } from '../../components/ButtonPadrao';
-
 
 const validationSchema = yup.object().shape({
   email: yup.string().email('Digite um email válido').required('*Campo obrigatório'),
@@ -18,7 +17,7 @@ const validationSchema = yup.object().shape({
 
 export default function Login() {
 
-  const { setIsLogin, setUser, logginRedirect, setLogginRedirect } = useAuth();
+  const { setIsLogin, setUser, logginRedirect, productId, setProductId, setLogginRedirect} = useAuth();
   let navigate = useNavigate();
 
   const [alertError, setAlertError] = useState([]);
@@ -42,7 +41,13 @@ export default function Login() {
         }).then(() => {
           if (localStorage.getItem("@token_user")) {
             setIsLogin(true)
-            navigate(`../`, { replace: true })
+            if(productId){
+            console.log(productId)
+              navigate(`/description/${productId}`)
+              setProductId(null)
+            }else {
+              navigate(`../`, { replace: true })
+            }
           }
         })
         .catch(function (error) {
@@ -57,6 +62,7 @@ export default function Login() {
 
     validationSchema: validationSchema
   });
+
 
   return (
     <div className="container container-login">
@@ -95,11 +101,11 @@ export default function Login() {
           onBlur={formik.handleBlur}
           helperText={formik.touched.password && formik.errors.password}
         />
-         <ButtonPadrao text="Enviar" handleClick={() => setLogginRedirect(false)} className="button-login " /> 
+        <Button onClick={() => setLogginRedirect(false)} type="submit" className="btn-login" variant="contained">Enviar</Button>
         <p className="link-register">Ainda não tem conta? <Link to="/Register">Registre-se</Link></p>
       </form>        
       <div className="car-image">
-        <img src="https://i.postimg.cc/4xTbr3L3/jan-vlacuha-U4-Iao-KF5aj4-unsplash.jpg" alt="car" />
+        <img src="https://i.postimg.cc/4xTbr3L3/jan-vlacuha-U4-Iao-KF5aj4-unsplash.jpg" alt="car" />        
       </div>       
       </div>   
     </div>

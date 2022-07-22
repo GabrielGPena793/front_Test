@@ -5,6 +5,7 @@ import Loading from "../../components/Loading";
 import { CaretLeft } from "phosphor-react";
 
 import "./style.css";
+import { StarScore } from "../../components/StartScore";
 
 function Category(props) {
   const cities = {
@@ -249,6 +250,7 @@ function Category(props) {
                       <Card.Body>
                         <Card.Title className="singleCard_title">
                           {product.name}
+                          <StarScore score={product.score} className="container_starts_category" />
                         </Card.Title>
                         <div className="container__tags">
                           <span>Cidade: {product.city.name}</span>

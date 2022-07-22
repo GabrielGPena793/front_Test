@@ -19,7 +19,14 @@ function gettingFirstLetters(user) {
 }
 
 export default function NavBar() {
-  const { isLogin, setIsLogin, user } = useAuth();
+  const { isLogin, setIsLogin, user, setUser } = useAuth();
+
+  function handleLogout(){
+    setIsLogin(false)
+    setUser(null)
+    localStorage.removeItem("@token_user");
+  }
+
 
   return (
     <>
@@ -61,7 +68,7 @@ export default function NavBar() {
                       <div className="circle">
                         <span>{gettingFirstLetters(user.login)}</span>
                       </div>
-                      <AvatarProfile user={user} handleLogout={setIsLogin}/>
+                      <AvatarProfile user={user} onLogout={handleLogout} />
                     </div>
                   </nav>
                 </Nav>
@@ -87,7 +94,7 @@ export default function NavBar() {
                 </Link>
 
                 <nav className="container__nav_right navigation_header">
-                  <Link to="/login">
+                  <Link to="/login" >
                     <span>Reservas</span>
                   </Link>
                   <Link to="/login">

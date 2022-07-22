@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "../../components/Icon/Logo";
-import { Container } from "react-bootstrap";
+
 import "./findBrands.css";
 
 export default function FindBrands() {

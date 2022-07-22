@@ -15,6 +15,7 @@ a{
 }
 body{
     background-color: var(--primary-color);
+    overflow-x: hidden;
 }
 
 h6{
@@ -26,6 +27,7 @@ h6{
 :root {
     --primary-color: #0F0F1B;
     --secondary-color: #886D48;
+    --sub-text: #645137;
 
 
     --dark-blue: #1F2030;
@@ -38,7 +40,7 @@ h6{
     --red-hover: #c2af46;
 
     --grey: #dededece;
-    --medium-grey: #626874;
+    --medium-grey: #62687479;
     --dark: #191B1D;
     --yellow: #191B1D;
 }

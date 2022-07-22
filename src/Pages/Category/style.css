@@ -23,6 +23,10 @@
   font-weight: bold;
 }
 
+.container_starts_category{
+  padding: 0.5rem 0;
+}
+
 .sidebar_li_btn {
   width: 100%;
   padding: 12px 0;
@@ -49,7 +53,7 @@
 .sidebar_li_btn:hover::after {
   transform: scaleX(1);
   transform-origin: left;
-  background: var(--dark-gold);
+  background: var(--secondary-color);
 }
 
 .sidebar_select {
@@ -88,7 +92,7 @@
 
 .singleCard:hover {
   border-radius: none;
-  box-shadow: 0 0 0 1px var(--dark-gold);
+  box-shadow: 0 0 0 1.5px var(--secondary-color);
 }
 
 .singleCard_title {

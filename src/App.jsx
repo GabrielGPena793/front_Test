@@ -13,11 +13,12 @@ import "./App.css";
 import Admin from "./Pages/Admin";
 import MyReservation from "./Pages/MyReservation";
 import ListProducts from "./Pages/ListProducts";
+import NotFound from "./Pages/404";
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,9 +39,10 @@ export default function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/listProducts" element={<ListProducts />} />
           <Route path="/myReservation" element={<MyReservation />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }

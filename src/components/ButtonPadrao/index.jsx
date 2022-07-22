@@ -1,11 +1,11 @@
 import "./styles.css";
 
-export function ButtonPadrao({ handleClick, text, className, type }) {
+export function ButtonPadrao({ handleClick, text, disabled }) {
   return (
-    <button 
-      type={type || ""}
+    <button
+      disabled={disabled || false}
       onClick={handleClick}
-      className={`btn-search form-control shadow-none button_padrao ${className ? className : ""}`}
+      className="btn-search form-control shadow-none button_padrao"
     >
       {text}
     </button>

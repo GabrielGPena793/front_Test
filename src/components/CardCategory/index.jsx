@@ -39,20 +39,20 @@ function CardCategory() {
         <div className="card_category_col">
           <div>
             <Link
+              id='coupes'
               className="card_category_row"
               to={`/category/${productCategory[0].qualification}`}
               style={{ textDecoration: "none" }}
             >
               <div
                 className="cardCategory-img-content"
-                data-aos="fade-right"
-                data-aos-offset="200"
-                data-aos-duration="500"
               >
                 <img
                   className="card_category_img0 card_category_img"
                   src="https://i.postimg.cc/VNWzDGfk/PHOTOS02-720009999-PH-1-OKYOJCDCZBTK-1.png"
                   alt={productCategory[0].description}
+                  data-aos="fade-right"
+                  data-aos-duration="500"
                 />
               </div>
               <div className="cardCategory_content">
@@ -67,20 +67,20 @@ function CardCategory() {
           </div>
           <div>
             <Link
+              id="conversiveis"
               className="card_category_row_reverse"
               to={`/category/${productCategory[1].qualification}`}
               style={{ textDecoration: "none" }}
             >
               <div
                 className="cardCategory-img-content"
-                data-aos="fade-left"
-                data-aos-offset="200"
-                data-aos-duration="500"
               >
                 <img
                   className="card_category_img1 card_category_img"
                   src="https://i.postimg.cc/mg0S8jdJ/7ed7a8fa861553adc42b3f5d198fad34-1.png"
                   alt={productCategory[1].description}
+                  data-aos="fade-left"
+                  data-aos-duration="500"
                 />
               </div>
               <div className="cardCategory_content">
@@ -95,20 +95,20 @@ function CardCategory() {
           </div>
           <div>
             <Link
+              id="sedans"
               className="card_category_row"
               to={`/category/${productCategory[2].qualification}`}
               style={{ textDecoration: "none" }}
             >
               <div
                 className="cardCategory-img-content"
-                data-aos="fade-right"
-                data-aos-offset="200"
-                data-aos-duration="500"
               >
                 <img
                   className="card_category_img2 card_category_img"
                   src="https://i.postimg.cc/tgWNf6wT/OIP-1.png"
                   alt={productCategory[2].description}
+                  data-aos="fade-right"
+                  data-aos-duration="500"
                 />
               </div>
               <div className="cardCategory_content">
@@ -123,20 +123,20 @@ function CardCategory() {
           </div>
           <div>
             <Link
+              id="suv"
               className="card_category_row_reverse"
               to={`/category/${productCategory[3].qualification}`}
               style={{ textDecoration: "none" }}
             >
               <div
                 className="cardCategory-img-content"
-                data-aos="fade-left"
-                data-aos-offset="200"
-                data-aos-duration="500"
               >
                 <img
                   className="card_category_img3 card_category_img"
                   src="https://i.postimg.cc/qRGXBTkH/Lamborghini-Urus-Rental-Dubai-1.png"
                   alt={productCategory[3].description}
+                  data-aos="fade-left"
+                  data-aos-duration="500"
                 />
               </div>
               <div className="cardCategory_content">

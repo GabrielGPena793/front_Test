@@ -45,8 +45,24 @@ export const CustomDropdown = (props) => {
   }
 
   function handleClick() {
-    //setando data no localStorage
-    localStorage.setItem(
+   
+
+    if (selectCity !== 0 && date[1] !== undefined) {
+      setDateInLocalStorage()
+      navigate(`/category/city/${selectCity}/date/${format(new Date(date[0]), 'yyyy-MM-dd')}/${format(new Date(date[1]), 'yyyy-MM-dd')}`, { replace: true })
+    }
+    else if (selectCity !== 0) {
+      navigate(`/category/city/${selectCity}`, { replace: true })
+    }
+    else if (date[1] !== undefined) {
+      setDateInLocalStorage()
+      navigate(`/category/date/${format(new Date(date[0]), 'yyyy-MM-dd')}/${format(new Date(date[1]), 'yyyy-MM-dd')}`, { replace: true })
+    }
+  }
+
+  function setDateInLocalStorage() {
+     //setando data no localStorage
+     localStorage.setItem(
       "@inicial_date",
       JSON.stringify({
         inputDate: format(new Date(date[0]), "dd/MM/yyyy"),
@@ -61,16 +77,6 @@ export const CustomDropdown = (props) => {
         calendarDate: format(new Date(date[1]), "yyyy-MM-dd"),
       })
     );
-
-    if (selectCity !== 0 && date[1] !== undefined) {
-      navigate(`/category/city/${selectCity}/date/${format(new Date(date[0]), 'yyyy-MM-dd')}/${format(new Date(date[1]), 'yyyy-MM-dd')}`, { replace: true })
-    }
-    else if (selectCity !== 0) {
-      navigate(`/category/city/${selectCity}`, { replace: true })
-    }
-    else if (date[1] !== undefined) {
-      navigate(`/category/date/${format(new Date(date[0]), 'yyyy-MM-dd')}/${format(new Date(date[1]), 'yyyy-MM-dd')}`, { replace: true })
-    }
   }
 
   return (

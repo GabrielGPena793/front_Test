@@ -73,17 +73,36 @@
 }
 
 .product-title {
+    margin-bottom: 0;
     font-weight: bold;
     font-size: 1rem;
     color: var(--secondary-color)
 }
 
 .car-category-reservation {
-    color: var(--secondary-color);
+    margin-bottom: 0;
+    color:var(--sub-text) ;
     font-weight: bold;
     font-size: 0.8rem;
 }
 
+.container_not_found_my_reservation{
+    max-width: 37rem;
+    margin: auto;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.container_not_found_my_reservation h1 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+}
+
+.container_not_found_my_reservation p {
+    margin: 1rem 0;
+}
 
 .link-list,
 .reservation-list,
@@ -110,6 +129,10 @@
 .date-hour-reservation span {
     margin-right: 0.3em;
     font-size: 0.9rem;
+}
+
+.car-image-reservation div {
+    margin-bottom: 0.7rem;
 }
 
 

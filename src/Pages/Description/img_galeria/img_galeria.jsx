@@ -3,10 +3,23 @@ import "./img_galeria.css";
 import { Card } from "react-bootstrap";
 import { Modal, Carousel } from "react-bootstrap";
 import { useState } from "react";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  EmailShareButton,
+  EmailIcon,
+} from "react-share";
 
 export default function Img_galeria({ products, windowWidth }) {
   const [show, setShow] = useState(false);
   const [selectImage, setSelectImage] = useState(0);
+
+
+  const shareUrl = "http://autolux.ctdprojetos.com.br/";
 
   return (
     <>
@@ -75,7 +88,7 @@ export default function Img_galeria({ products, windowWidth }) {
                             centered
                           >
                             <Modal.Body>
-                            <Modal.Header closeButton></Modal.Header>
+                              <Modal.Header closeButton></Modal.Header>
                               <Carousel fade={true} interval={null}>
                                 {product.images.map((image) => (
                                   <Carousel.Item key={image.id} className={`${selectImage === image.id ? "active" : ""}`}>
@@ -88,7 +101,7 @@ export default function Img_galeria({ products, windowWidth }) {
                                 ))}
                               </Carousel>
                               <div className="container_images_preview" >
-                              {product.images.map((image) => (
+                                {product.images.map((image) => (
                                   <div key={image.id} onClick={() => setSelectImage(image.id)}>
                                     <img
                                       className="d-block w-100"
@@ -131,6 +144,24 @@ export default function Img_galeria({ products, windowWidth }) {
                     <i className={charact.icon} aria-hidden="true"></i> {charact.name}: {charact.description}
                   </h6>
                 ))}
+              </div>
+              <div className="share">
+                <h5>Compartilhe nas redes sociais</h5>
+                <FacebookShareButton className="icon_share" url={shareUrl} quote={"Alugue hoje seu carro dos sonhos na Autolux"}>
+                  <FacebookIcon size={30} round={true} />
+                </FacebookShareButton>
+                <WhatsappShareButton className="icon_share" url={shareUrl} title={"Autolux - alugue seu carro dos sonhos"}>
+                  <WhatsappIcon size={30} round={true} />
+                </WhatsappShareButton>
+                <TwitterShareButton className="icon_share" url={shareUrl} title={"Autolux - alugue seu carro dos sonhos"}>
+                  <TwitterIcon size={30} round={true} />
+                </TwitterShareButton>
+                <EmailShareButton className="icon_share" url={shareUrl} subject={"Autolux - alugue seu carro dos sonhos"}
+                  body={"A AUTOLUX conta com uma frota variada e diferenciada para nossos clientes pois antes da reserva, todos os carros são submetidos a um rigoroso critério de seleção e revisão. Possuímos veículos sem sinais de uso ou desgaste, todos eles em excelente condição, portanto uma grande oportunidade de viver a experiência e o privilégio de dirigir os melhores carros de luxo. Para reservar seu próximo carro de luxo com conforto e segurança, conte conosco!"}
+                  separator={" "}
+                >
+                  <EmailIcon size={30} round={true} />
+                </EmailShareButton>
               </div>
             </div>
           </div>

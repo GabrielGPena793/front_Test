@@ -81,7 +81,7 @@
 }
 
 .img_especif_tit{
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--secondary-color);
     margin-bottom: 2.6rem;
 }
 
@@ -92,6 +92,19 @@
     grid-gap: 1rem;
     color: var(--dark);
     margin-bottom: 3.3rem;
+}
+
+/*Sharing*/
+
+.share h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.icon_share{
+    margin-right: 0.6rem;
+    margin-bottom: 2rem;
 }
 
 @media (max-width: 1320px) {

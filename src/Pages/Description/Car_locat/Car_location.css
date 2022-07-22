@@ -3,7 +3,7 @@
 }
 
 .Car_location_tit{
-    border-bottom: 1px solid var(--red);
+    border-bottom: 1px solid var(--secondary-color);
     margin: 1rem 0rem 2rem 0rem;
     font-weight: bold;
     font-size: 24px;

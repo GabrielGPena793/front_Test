@@ -3,6 +3,7 @@ import { api } from "../../Service/axios.js";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Loading from "../../components/Loading";
+import { Link } from "react-router-dom";
 
 function CardRecommend() {
   const [productRecommend, setProductRecommend] = useState([]);
@@ -71,7 +72,9 @@ function CardRecommend() {
             <div className="card_recommend_logo">
               <img className="card_recommend_logo_img" src="https://i.postimg.cc/sXyz8b4y/Group-134.png" alt="logo do site" />
             </div>
-            <button className="button_card_recommend">Ver mais</button>
+            <Link className="button__card_recommend" to={`/description/${productRecommend[8]?.id}`}>
+              <button className="button_card_recommend">Ver mais</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -116,7 +119,9 @@ function CardRecommend() {
             <div className="card_recommend_logo">
               <img className="card_recommend_logo_img" src="https://i.postimg.cc/sXyz8b4y/Group-134.png" alt="logo do site" />
             </div>
-            <button className="button_card_recommend">Ver mais</button>
+            <Link className="button__card_recommend" to={`/description/${productRecommend[4]?.id}`}>
+              <button className="button_card_recommend">Ver mais</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,9 +1,10 @@
 import React from "react";
-import { BsStarFill, BsFillGeoAltFill } from "react-icons/bs";
+import { BsFillGeoAltFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import "./Header_desc.css";
 import { CaretLeft } from "phosphor-react";
+import { StarScore } from "../../../components/StartScore";
 
 export default function Header_desc({ products }) {
   return (
@@ -36,14 +37,10 @@ export default function Header_desc({ products }) {
           </Navbar.Brand>
           <div>
             <h5 title="Categoria" alt="Categoria">
-              Muito bom
+              Avaliação
             </h5>
-            <div className="">
-              <BsStarFill className="icon_star_header_description" />
-              <BsStarFill className="icon_star_header_description" />
-              <BsStarFill className="icon_star_header_description" />
-              <BsStarFill className="icon_star_header_description" />
-              <BsStarFill className="icon_star_header_description_not" />
+            <div className="container_star">
+              <StarScore score={product.score} />
             </div>
           </div>
         </Navbar>
