@@ -9,7 +9,9 @@
 }
 
 .rmdp-shadow {
- box-shadow: 0px var(--light);
+ box-shadow: 0px var(--light) !important;
+ width: 100% !important;
+
 }
 
 .reserv_page_color_pad {
