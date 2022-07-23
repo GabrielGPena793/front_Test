@@ -5,7 +5,7 @@ export function ButtonPadrao({ handleClick, text, disabled, className }) {
     <button
       disabled={disabled || false}
       onClick={handleClick}
-      className={`btn-search form-control shadow-none button_padrao ${className}`}
+      className={`form-control shadow-none button_padrao ${className}`}
     >
       {text}
     </button>
