@@ -46,9 +46,9 @@
     margin-bottom: 10px;
 }
 
-.css-sghohy-MuiButtonBase-root-MuiButton-root.button-register {
+.button-register {
     border: 1px solid var(--secondary-color);
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
     width: 206px;
     height: 40px;
     align-self: center;

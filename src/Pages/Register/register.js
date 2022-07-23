@@ -7,6 +7,7 @@ import './register.css'
 import Button from '@mui/material/Button';
 import axios from '../Login/servicesLogin/api'
 import Spinner from 'react-bootstrap/Spinner'
+import { ButtonPadrao } from '../../components/ButtonPadrao';
 
 
 const validationSchema = yup.object().shape({
@@ -150,7 +151,7 @@ export default function Register() {
                         helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
                     />
 
-                    <Button type="submit" className="button-register" variant="contained">Criar conta</Button>
+                    <ButtonPadrao type="submit" className="button-register"  text="Criar conta"/>
                     <p className="link-login">Já tem uma conta? <Link to="/Login">Iniciar sessão</Link></p>
                 </form>
                 </div>

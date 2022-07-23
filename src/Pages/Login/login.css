@@ -18,12 +18,12 @@
     margin: 0 auto;
 }
 
-.css-sghohy-MuiButtonBase-root-MuiButton-root.btn-login {
+.btn-login {
     width: 206px;
     height: 40px;
     align-self: center;
     margin-top: 40px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
     border: 1px solid var(--secondary-color);
     color: var(--secondary-color);
     font-size: 0.7rem;
