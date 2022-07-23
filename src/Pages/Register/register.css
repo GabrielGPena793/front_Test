@@ -246,10 +246,7 @@
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
-    .form-register-fields {
 
-
-    }
     .register-form-car {
         width: 100%;
     }
